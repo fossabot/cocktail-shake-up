@@ -155,7 +155,7 @@
       "src/**/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](docs|node_modules)[/\\\\]"
+      "<rootDir>[/\\\\](docs|node_modules|webdriver)[/\\\\]"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
