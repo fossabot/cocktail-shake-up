@@ -26,8 +26,8 @@ const config = {
 };
 
 exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME,
-  key:  process.env.BROWSERSTACK_ACCESS_KEY,
+  user: process.env.SAUCE_USERNAME,
+  key:  process.env.SAUCE_ACCESS_KEY,
 
   specs:        ['./webdriver/test/**/*.spec.js'],
   maxInstances: 10,
