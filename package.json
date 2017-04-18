@@ -57,7 +57,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "browserstack": "wdio webdriver/wdio.browserstack.js",
+    "sauce": "wdio webdriver/wdio.sauce.js",
     "build": "webpack --config config/webpack.config.prod.js",
     "lint": "eslint '+(src|test)/**/*.js' --fix",
     "start": "webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
