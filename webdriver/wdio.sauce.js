@@ -35,14 +35,14 @@ exports.config = {
 
   capabilities: [
     {
-      browserName: config.CHROME,
+      browserName: config.EDGE,
       build:       config.BUILD,
       name:        `${config.WIN.NAME} ${config.WIN.LATEST}`,
       platform:    `${config.WIN.PLATFORM} ${config.WIN.LATEST}`,
       version:     'latest',
     },
     {
-      browserName: config.EDGE,
+      browserName: config.CHROME,
       build:       config.BUILD,
       name:        `${config.WIN.NAME} ${config.WIN.LATEST}`,
       platform:    `${config.WIN.PLATFORM} ${config.WIN.LATEST}`,
