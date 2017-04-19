@@ -1,18 +1,18 @@
 import React from 'react';
-import Notify from '../../src/components/Notify';
 import { shallow } from 'enzyme';
+import Notify from '../../src/components/Notify';
 
-test('Should render a notification', () => {
+test('Should render a Notification', () => {
   const tree = shallow(<Notify />).debug();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render a notification with a closeHandler', () => {
+test('Should render a Notification with a closeHandler', () => {
   const tree = shallow(<Notify onCloseHandler={() => {}} />).debug();
   expect(tree).toMatchSnapshot();
 });
 
-test('should render a notification with a title', () => {
+test('should render a Notification with a title', () => {
   const tree = shallow(<Notify visible={true} />).debug();
   expect(tree).toMatchSnapshot();
 });

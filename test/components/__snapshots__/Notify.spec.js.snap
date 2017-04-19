@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render a notification 1`] = `
+exports[`Should render a Notification 1`] = `
 "<div className=\\"notification\\">
 <h1 />
 </div>"
 `;
 
-exports[`Should render a notification with a closeHandler 1`] = `
+exports[`Should render a Notification with a closeHandler 1`] = `
 "<div className=\\"notification\\">
 <button className=\\"close\\" onClick={[Function]} />
 <h1 />
 </div>"
 `;
 
-exports[`should render a notification with a title 1`] = `
+exports[`should render a Notification with a title 1`] = `
 "<div className=\\"notification visible\\">
 <h1 />
 </div>"
