@@ -1,5 +1,3 @@
-/* @flow */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import thunk from 'redux-thunk';
@@ -8,11 +6,13 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { reducer } from './state/reducer';
 import App from './components/App';
 
-window.addEventListener('unhandledrejection', event => console.log(`Unhandled promise rejection ${event.reason}`));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-window.addEventListener('rejectionhandled', event => console.log(`Handled promise rejection ${event.reason}`));
+addEventListener('unhandledrejection', event => console.log(`Unhandled promise rejection ${event.reason}`));
 
-const store = createStore(reducer, compose(applyMiddleware(thunk)));
+addEventListener('rejectionhandled', event => console.log(`Handled promise rejection ${event.reason}`));
+
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
