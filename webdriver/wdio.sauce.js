@@ -128,7 +128,7 @@ exports.config = {
   ],
 
   screenshotPath:         './errorShots/',
-  waitforTimeout:         10000,
+  waitforTimeout:         30000,
   connectionRetryTimeout: 90000,
   connectionRetryCount:   3,
 
