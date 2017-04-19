@@ -8,9 +8,11 @@
   ],
   "dependencies": {
     "babel-runtime": "^6.20.0",
+    "immutable": "^3.8.1",
     "localforage": "^1.5.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-helmet": "^5.0.3",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
@@ -32,7 +34,7 @@
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-flowtype": "^2.31.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "4.0.0",
@@ -50,6 +52,7 @@
     "url-loader": "^0.5.8",
     "wdio-concise-reporter": "^0.1.2",
     "wdio-mocha-framework": "^0.5.9",
+    "wdio-sauce-service": "^0.3.1",
     "wdio-selenium-standalone-service": "^0.0.8",
     "webdriverio": "^4.6.2",
     "webpack": "^2.4.1",
@@ -57,9 +60,9 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "browserstack": "wdio webdriver/wdio.browserstack.js",
+    "sauce": "wdio webdriver/wdio.sauce.js",
     "build": "webpack --config config/webpack.config.prod.js",
-    "lint": "eslint '+(src|test)/**/*.js' --fix",
+    "lint": "eslint '+(src|test|webdriver)/**/*.js' --fix",
     "start": "webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
     "test": "jest",
     "webdriver": "wdio webdriver/wdio.conf.js"
@@ -113,6 +116,7 @@
       "react"
     ],
     "rules": {
+      "import/no-named-as-default": 0,
       "debugger": 0,
       "no-console": 0,
       "no-debugger": 0,
@@ -138,11 +142,13 @@
         "warn",
         120
       ],
+      "no-var": "error",
       "object-curly-spacing": [
-        1,
+        "warn",
         "always"
       ],
       "object-property-newline": "error",
+      "prefer-const": "error",
       "semi": [
         "error",
         "always"
@@ -155,7 +161,7 @@
       "src/**/*.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>[/\\\\](docs|node_modules)[/\\\\]"
+      "<rootDir>[/\\\\](docs|node_modules|webdriver)[/\\\\]"
     ],
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",

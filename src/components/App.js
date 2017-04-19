@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
 
-class App extends PureComponent {
+export class App extends PureComponent {
   static propTypes = {
     dispatch:     func,
     locale:       object,

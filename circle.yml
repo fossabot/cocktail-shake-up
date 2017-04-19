@@ -7,6 +7,8 @@ machine:
 general:
   artifacts:
     - "errorShots"
+    - "build"
+    - "public"
 
 dependencies:
   override:
@@ -17,4 +19,4 @@ dependencies:
 test:
   override:
     - yarn test
-    - yarn browserstack
+    - yarn sauce

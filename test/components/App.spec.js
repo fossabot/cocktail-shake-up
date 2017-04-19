@@ -1,3 +1,9 @@
-test('adds 1 + 2 to equal 3', () => {
-  expect(1 + 2).toBe(3);
+/* @flow */
+import React from 'react';
+import { shallow } from 'enzyme';
+import { App } from '../../src/components/App';
+
+test('should render an App', () => {
+  const tree = shallow(<App />).debug();
+  expect(tree).toMatchSnapshot();
 });
