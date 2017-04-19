@@ -136,6 +136,7 @@ exports.config = {
   services:     ['sauce'],
   framework:    'mocha',
   mochaOpts:    {
-    ui: 'bdd',
+    timeout: 20000,
+    ui:      'bdd',
   },
 };
