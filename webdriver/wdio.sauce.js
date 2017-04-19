@@ -128,7 +128,7 @@ exports.config = {
   ],
 
   screenshotPath:         './errorShots/',
-  waitforTimeout:         60000,
+  waitforTimeout:         10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount:   3,
 
@@ -136,7 +136,7 @@ exports.config = {
   services:     ['sauce'],
   framework:    'mocha',
   mochaOpts:    {
-    timeout: 20000,
+    timeout: 60000,
     ui:      'bdd',
   },
 };
