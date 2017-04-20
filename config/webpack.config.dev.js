@@ -11,12 +11,10 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const raw = Object.keys(process.env).reduce((env, key) => {
   env[key] = process.env[key];
   return env;
-},
-{
+}, {
   NODE_ENV:   process.env.NODE_ENV || 'development',
   PUBLIC_URL: '/',
-}
-);
+});
 const stringified = {
   'process.env': Object.keys(raw).reduce((env, key) => {
     env[key] = JSON.stringify(raw[key]);
@@ -112,6 +110,19 @@ module.exports = {
     }),
     new InterpolateHtmlPlugin(raw),
     new WatchMissingNodeModulesPlugin(path.resolve(__dirname, '../node_modules')),
+    function() {
+      this.plugin('done', function(stats) {
+        if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
+          console.log(stats.compilation.errors);
+          process.exit(1);
+        }
+        console.log();
+        console.log();
+        console.log('Done 🎉');
+        console.log();
+        process.exit(0);
+      });
+    },
   ],
   node: {
     fs:  'empty',

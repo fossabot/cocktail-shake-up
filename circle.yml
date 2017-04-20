@@ -19,11 +19,17 @@ dependencies:
 deployment:
   pre:
     - export NODE_ENV='production'
-  staging:
+  production:
     branch: master
     commands:
       - yarn build
       - yarn deploy
+  staging:
+    branch: develop
+    commands:
+      commands:
+        - yarn build
+        - yarn deploy
 
 test:
   override:
