@@ -16,6 +16,12 @@ dependencies:
   cache_directories:
     - ~/.cache/yarn
 
+deployment:
+  staging:
+    branch: develop
+    heroku:
+      appname: foo-bar-123
+
 test:
   override:
     - yarn test
