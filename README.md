@@ -1,5 +1,7 @@
 # 🍸 Cocktail Shake-up! 🍹
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Jmclerck/cocktail-shake-up.svg)](https://greenkeeper.io/)
+
 <div style="display: flex; width: 50%">
   <div style="flex: 1">
   [![Greenkeeper badge](https://badges.greenkeeper.io/Jmclerck/cocktail-shake-up.svg)](https://greenkeeper.io/)
