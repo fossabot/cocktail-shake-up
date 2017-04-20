@@ -20,7 +20,7 @@ deployment:
   staging:
     branch: develop
     commands:
-      - ./node_modules/.bin/netlify -t $NETLIFY_SECRET
+      - ./node_modules/.bin/netlify --access-token $NETLIFY_SECRET deploy
 
 test:
   override:
