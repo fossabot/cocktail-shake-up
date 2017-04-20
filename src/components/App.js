@@ -2,6 +2,7 @@
 
 import React, { PureComponent } from 'react';
 import { func, object } from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './App.css';
@@ -18,7 +19,29 @@ export class App extends PureComponent {
       <Router>
         <div>
           <Switch>
-            <Route path="/" render={() => <div>Hello World</div>} />
+            <Route
+              path="/goodbye"
+              render={() => (
+                <div id="goodbye">
+                  <p>Goodbye World</p>
+                  <Helmet>
+                    <title>Goodbye Cocktail Shake Up</title>
+                  </Helmet>
+                </div>
+              )}
+            />
+            {/* Most generic path always goes last */}
+            <Route
+              path="/"
+              render={() => (
+                <div id="greet">
+                  <p>Hello World</p>
+                  <Helmet>
+                    <title>Hello Cocktail Shake Up</title>
+                  </Helmet>
+                </div>
+              )}
+            />
           </Switch>
         </div>
       </Router>
