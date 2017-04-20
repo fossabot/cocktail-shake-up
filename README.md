@@ -2,6 +2,9 @@
 
 <div style="display: flex; width: 50%">
   <div style="flex: 1">
+  [![Greenkeeper badge](https://badges.greenkeeper.io/Jmclerck/cocktail-shake-up.svg)](https://greenkeeper.io/)
+  </div>
+  <div style="flex: 1">
     [![Build Status](https://saucelabs.com/buildstatus/Jmclerck)](https://saucelabs.com/beta/builds/ef872c3dedf14f86815254b86e7e8759)
   </div>
   <div style="flex: 1">
