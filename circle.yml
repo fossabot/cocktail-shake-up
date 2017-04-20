@@ -6,9 +6,8 @@ machine:
 
 general:
   artifacts:
-    - "errorShots"
     - "build"
-    - "public"
+    - "errorShots"
 
 dependencies:
   cache_directories:
@@ -19,11 +18,6 @@ dependencies:
 deployment:
   production:
     branch: master
-    commands:
-      - yarn build
-      - yarn deploy
-  staging:
-    branch: develop
     commands:
       - yarn build:
           environment:
