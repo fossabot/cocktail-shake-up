@@ -9,15 +9,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 
-const raw = Object.keys(process.env).reduce(
-  (env, key) => {
-    env[key] = process.env[key];
-    return env;
-  },
-  {
-    NODE_ENV:   process.env.NODE_ENV || 'development',
-    PUBLIC_URL: '/',
-  }
+const raw = Object.keys(process.env).reduce((env, key) => {
+  env[key] = process.env[key];
+  return env;
+},
+{
+  NODE_ENV:   process.env.NODE_ENV || 'development',
+  PUBLIC_URL: '/',
+}
 );
 const stringified = {
   'process.env': Object.keys(raw).reduce((env, key) => {
