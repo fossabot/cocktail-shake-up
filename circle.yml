@@ -27,9 +27,8 @@ deployment:
   staging:
     branch: develop
     commands:
-      commands:
-        - yarn build
-        - yarn deploy
+      - yarn build
+      - yarn deploy
 
 test:
   override:
