@@ -25,6 +25,9 @@ deployment:
       - yarn deploy
 
 test:
+  pre:
+    - yarn start:
+        background: true
   override:
     - yarn test
     - yarn sauce
