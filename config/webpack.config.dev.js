@@ -24,12 +24,15 @@ const stringified = {
 
 module.exports = {
   devServer: {
-    inline: true,
-    host:   '0.0.0.0',
-    hot:    true,
-    port:   3000,
+    compress:           true,
+    historyApiFallback: true,
+    host:               '0.0.0.0',
+    hot:                true,
+    overlay:            true,
+    port:               3000,
+    quiet:              true,
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'source-map',
   entry:   [require.resolve('react-dev-utils/webpackHotDevClient'), path.resolve(__dirname, '../src/index.js')],
   output:  {
     path:       path.resolve(__dirname, '../build'),
@@ -110,19 +113,6 @@ module.exports = {
     }),
     new InterpolateHtmlPlugin(raw),
     new WatchMissingNodeModulesPlugin(path.resolve(__dirname, '../node_modules')),
-    function() {
-      this.plugin('done', function(stats) {
-        if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1) {
-          console.log(stats.compilation.errors);
-          process.exit(1);
-        }
-        console.log();
-        console.log();
-        console.log('Done 🎉');
-        console.log();
-        process.exit(0);
-      });
-    },
   ],
   node: {
     fs:  'empty',
