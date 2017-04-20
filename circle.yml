@@ -11,10 +11,12 @@ general:
     - "public"
 
 dependencies:
-  override:
-    - yarn
   cache_directories:
     - ~/.cache/yarn
+  override:
+    - yarn
+  post:
+    - export NODE_ENV='production'
 
 deployment:
   staging:
