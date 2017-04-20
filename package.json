@@ -60,9 +60,10 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "sauce": "wdio webdriver/wdio.sauce.js",
     "build": "webpack --colors --config config/webpack.config.prod.js",
+    "deploy": "netlify --access-token $NETLIFY_SECRET deploy",
     "lint": "eslint '+(src|test|webdriver)/**/*.js' --fix",
+    "sauce": "wdio webdriver/wdio.sauce.js",
     "start": "webpack-dashboard -- webpack-dev-server --config config/webpack.config.dev.js",
     "test": "jest",
     "webdriver": "wdio webdriver/wdio.conf.js"

@@ -15,14 +15,15 @@ dependencies:
     - ~/.cache/yarn
   override:
     - yarn
-  post:
-    - export NODE_ENV='production'
 
 deployment:
+  pre:
+    - export NODE_ENV='production'
   staging:
-    branch: develop
+    branch: master
     commands:
-      - ./node_modules/.bin/netlify --access-token $NETLIFY_SECRET deploy
+      - yarn build
+      - yarn deploy
 
 test:
   override:
