@@ -1,9 +1,19 @@
 const assert = require('assert');
 
-describe('webdriver.io page', function() {
-  it('should have the right title - the fancy generator way', function() {
-    browser.url('http://webdriver.io');
+describe('Index Page', function() {
+  beforeEach(function() {
+    browser.url('http://localhost:3000');
+  });
+
+  it('should have the right title', function() {
+    browser.waitForExist('#root');
     const title = browser.getTitle();
-    assert.equal(title, 'WebdriverIO - Selenium 2.0 javascript bindings for nodejs');
+    assert.equal(title, 'Hello Cocktail Shake Up');
+  });
+
+  it('should say hello', function() {
+    browser.waitForExist('#greet');
+    const elem = browser.getText('#greet');
+    assert.equal(elem, 'Hello World');
   });
 });

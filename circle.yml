@@ -6,17 +6,28 @@ machine:
 
 general:
   artifacts:
-    - "errorShots"
     - "build"
-    - "public"
+    - "errorShots"
 
 dependencies:
-  override:
-    - yarn
   cache_directories:
     - ~/.cache/yarn
+  override:
+    - yarn
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - yarn build:
+          environment:
+            NODE_ENV: production
+      - yarn deploy
 
 test:
+  pre:
+    - yarn start:
+        background: true
   override:
     - yarn test
     - yarn sauce
