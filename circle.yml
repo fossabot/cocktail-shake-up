@@ -19,8 +19,8 @@ dependencies:
 deployment:
   staging:
     branch: develop
-    heroku:
-      appname: cocktail-shake-up
+    commands:
+      - ./node_modules/.bin/netlify -t $NETLIFY_SECRET
 
 test:
   override:
