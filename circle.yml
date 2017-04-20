@@ -17,8 +17,6 @@ dependencies:
     - yarn
 
 deployment:
-  pre:
-    - export NODE_ENV=production
   production:
     branch: master
     commands:
@@ -27,7 +25,9 @@ deployment:
   staging:
     branch: develop
     commands:
-      - yarn build
+      - yarn build:
+          environment:
+            NODE_ENV: production
       - yarn deploy
 
 test:
