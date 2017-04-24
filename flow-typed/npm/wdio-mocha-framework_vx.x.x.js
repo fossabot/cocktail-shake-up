@@ -1,4 +1,4 @@
-// flow-typed signature: 50a8328597692822d0ecc2038efbaebc
+// flow-typed signature: a8efcabbb95ba1ca353ebd00df1d2922
 // flow-typed version: <<STUB>>/wdio-mocha-framework_v^0.5.9/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

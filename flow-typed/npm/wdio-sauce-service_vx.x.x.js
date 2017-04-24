@@ -1,4 +1,4 @@
-// flow-typed signature: 7d9cd0174e9afcacbc0ff2a66d19e819
+// flow-typed signature: bfe92284aeff90c7ba981d7eee79abcc
 // flow-typed version: <<STUB>>/wdio-sauce-service_v^0.3.1/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

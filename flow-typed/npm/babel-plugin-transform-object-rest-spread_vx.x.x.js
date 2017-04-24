@@ -1,4 +1,4 @@
-// flow-typed signature: 606f6b4804064186f79d797dec2d820e
+// flow-typed signature: 3ac9e797665b9d2a75d6b666246ef294
 // flow-typed version: <<STUB>>/babel-plugin-transform-object-rest-spread_v^6.23.0/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

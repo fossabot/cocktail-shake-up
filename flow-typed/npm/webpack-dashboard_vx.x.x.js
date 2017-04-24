@@ -1,4 +1,4 @@
-// flow-typed signature: f5e716d3288f79dc397811e7a2d60b8c
+// flow-typed signature: c840541f585b796b8bc0b08208e4c47f
 // flow-typed version: <<STUB>>/webpack-dashboard_v^0.3.0/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

@@ -1,4 +1,4 @@
-// flow-typed signature: 91f25d21543c68682f884703961f1b91
+// flow-typed signature: 0d7d7584251b7e6f626e4ccea86970d8
 // flow-typed version: <<STUB>>/babel-plugin-transform-runtime_v^6.23.0/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 

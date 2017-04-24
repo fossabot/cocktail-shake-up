@@ -1,4 +1,4 @@
-// flow-typed signature: 1ea640eab36cb284f50dfb839c598650
+// flow-typed signature: 57f4690ad00247b1588f44ce5afd8ccf
 // flow-typed version: <<STUB>>/wdio-concise-reporter_v^0.1.2/flow_v0.44.2
 
 /**
@@ -8,8 +8,8 @@
  *
  * Fill this stub out by replacing all the `any` types.
  *
- * Once filled out, we encourage you to share your work with the 
- * community by sending a pull request to: 
+ * Once filled out, we encourage you to share your work with the
+ * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
 
