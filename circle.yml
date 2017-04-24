@@ -16,6 +16,8 @@ dependencies:
     - yarn
 
 deployment:
+  pre:
+    - snyk auth $SNYK_TOKEN
   production:
     branch: master
     commands:
@@ -23,9 +25,11 @@ deployment:
           environment:
             NODE_ENV: production
       - yarn deploy
+      - snyk monitor
 
 test:
   pre:
+    - snyk auth $SNYK_TOKEN
     - yarn start:
         background: true
   override:
