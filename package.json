@@ -58,7 +58,7 @@
     "wdio-selenium-standalone-service": "^0.0.8",
     "webdriverio": "^4.6.2",
     "webpack": "^3.0.0",
-    "webpack-dashboard": "^0.4.0",
+    "webpack-dashboard": "^1.0.0-3",
     "webpack-dev-server": "^2.4.3"
   },
   "scripts": {
