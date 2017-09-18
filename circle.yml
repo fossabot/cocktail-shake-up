@@ -30,8 +30,11 @@ deployment:
 test:
   pre:
     - snyk auth $SNYK_TOKEN
+    - greenkeeper-lockfile-update
     - yarn start:
         background: true
   override:
     - yarn test
     - yarn sauce
+  post:
+    - greenkeeper-lockfile-upload
