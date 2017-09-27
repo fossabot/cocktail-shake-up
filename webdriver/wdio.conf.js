@@ -8,15 +8,15 @@ exports.config = {
     },
   ],
 
-  sync:           true,
-  coloredLogs:    true,
-  bail:           0,
+  sync: true,
+  coloredLogs: true,
+  bail: 0,
   screenshotPath: './errorShots/',
-  baseUrl:        'http://localhost',
+  baseUrl: 'http://localhost',
 
-  waitforTimeout:         10000,
+  waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
-  connectionRetryCount:   3,
+  connectionRetryCount: 3,
   //
   // Initialize the browser instance with a WebdriverIO plugin. The object should have the
   // plugin name as key and the desired plugin options as properties. Make sure you have
@@ -40,10 +40,10 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services:               ['selenium-standalone'],
-  framework:              'mocha',
-  reporters:              ['concise'],
-  mochaOpts:              {
+  services: ['selenium-standalone'],
+  framework: 'mocha',
+  reporters: ['concise'],
+  mochaOpts: {
     ui: 'bdd',
   },
 };

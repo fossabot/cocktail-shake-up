@@ -1,7 +1,6 @@
 /* @flow */
 
 import React from 'react';
-import { bool, func, object, string, oneOfType } from 'prop-types';
 import './Notify.css';
 
 const Notify = (props: Object) => {
@@ -12,13 +11,6 @@ const Notify = (props: Object) => {
       {props.body}
     </div>
   );
-};
-
-Notify.propTypes = {
-  onCloseHandler: func,
-  body:           oneOfType([object, string]),
-  title:          string,
-  visible:        bool,
 };
 
 export default Notify;

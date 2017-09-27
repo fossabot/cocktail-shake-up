@@ -1,122 +1,67 @@
-'use strict';
-
 const path = require('path');
 const webpack = require('webpack');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-
-const raw = Object.keys(process.env).reduce((env, key) => {
-  env[key] = process.env[key];
-  return env;
-}, {
-  NODE_ENV:   process.env.NODE_ENV || 'development',
-  PUBLIC_URL: '/',
-});
-const stringified = {
-  'process.env': Object.keys(raw).reduce((env, key) => {
-    env[key] = JSON.stringify(raw[key]);
-    return env;
-  }, {}),
-};
 
 module.exports = {
+  devtool: 'eval-source-map',
+  entry: './src/index',
   devServer: {
-    compress:           true,
     historyApiFallback: true,
-    host:               '0.0.0.0',
-    hot:                true,
-    overlay:            true,
-    port:               3000,
-    quiet:              true,
-  },
-  devtool: 'source-map',
-  entry:   [require.resolve('react-dev-utils/webpackHotDevClient'), path.resolve(__dirname, '../src/index.js')],
-  output:  {
-    path:       path.resolve(__dirname, '../build'),
-    pathinfo:   true,
-    filename:   'static/js/bundle.js',
-    publicPath: '/',
-  },
-  resolve: {
-    modules:    [path.resolve(__dirname, '../node_modules')],
-    extensions: ['.js', '.json'],
+    hot: true,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
   },
   module: {
-    loaders: [
+    rules: [
       {
-        exclude: [/\.html$/, /\.js$/, /\.css$/, /\.json$/, /\.svg$/],
-        loader:  'url-loader',
-        query:   {
-          limit: 10000,
-          name:  'static/media/[name].[hash:8].[ext]',
-        },
-      },
-      {
-        enforce: 'pre',
-        include: path.resolve(__dirname, '../src'),
-        test:    /\.js$/,
-        loader:  'eslint-loader',
-      },
-      {
-        include: path.resolve(__dirname, '../src'),
+        test: /\.js$/,
+        use: ['babel-loader'],
         exclude: /node_modules/,
-        test:    /\.js$/,
-        loader:  'babel-loader',
-        query:   {
-          cacheDirectory: true,
-        },
       },
       {
         test: /\.css$/,
-        use:  [
-          'style-loader',
-          {
-            loader:  'css-loader',
-            options: {
-              importLoaders: 1,
-            },
-          },
-          {
-            loader:  'postcss-loader',
-            options: {
-              plugins: function() {
-                return [require('autoprefixer')];
-              },
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test:   /\.json$/,
-        loader: 'json-loader',
+        test: /\.html$/,
+        use: ['html-loader'],
       },
       {
-        test:   /\.svg$/,
-        loader: 'file-loader',
-        query:  {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
     ],
   },
+  output: {
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    pathinfo: true,
+  },
   plugins: [
-    new webpack.DefinePlugin(stringified),
-    new webpack.HotModuleReplacementPlugin(),
-    new CaseSensitivePathsPlugin(),
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
-      inject:   true,
-      template: path.resolve(__dirname, '../public/index.html'),
+      template: 'public/index.html',
     }),
-    new InterpolateHtmlPlugin(raw),
-    new WatchMissingNodeModulesPlugin(path.resolve(__dirname, '../node_modules')),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity,
+    }),
   ],
-  node: {
-    fs:  'empty',
-    net: 'empty',
-    tls: 'empty',
-  },
 };

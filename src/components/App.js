@@ -1,20 +1,17 @@
 /* @flow */
 
 import React, { PureComponent } from 'react';
-import { func, object } from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { connect } from 'react-redux';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import type { Node } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
-export class App extends PureComponent {
-  static propTypes = {
-    dispatch:     func,
-    locale:       object,
-    notification: object,
-  };
+export type Props = {};
+export type State = {};
 
-  render() {
+export class App extends PureComponent<Props, State> {
+  render(): Node {
     return (
       <Router>
         <div>
@@ -52,7 +49,7 @@ export class App extends PureComponent {
 const mapStateToProps = state => {
   return {
     notification: state.notification,
-    locale:       state.locale,
+    locale: state.locale,
   };
 };
 

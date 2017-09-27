@@ -2,7 +2,7 @@ const assert = require('assert');
 
 describe('Goodbye Page', function() {
   beforeEach(function() {
-    browser.url('http://localhost:3000/goodbye');
+    browser.url('http://localhost:8080/goodbye');
   });
 
   it('should have the right title', function() {

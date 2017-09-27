@@ -3,11 +3,15 @@ module.exports = wallaby => {
     compilers: {
       '**/*.js': wallaby.compilers.babel(),
     },
+
     env: {
       type: 'node',
     },
-    files:         ['src/**/*.js', 'src/**/*.css'],
-    tests:         ['test/**/*.spec.js'],
+
+    files: ['src/**/*.js', '!src/**/*.spec.js', 'src/**/*.css'],
+
+    tests: ['src/**/*.spec.js'],
+
     testFramework: 'jest',
   };
 };
