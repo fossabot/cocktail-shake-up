@@ -41,7 +41,7 @@
     "netlify-cli": "^1.2.2",
     "postcss-loader": "^2.0.3",
     "prop-types": "^15.5.8",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-addons-test-utils": "^15.5.1",
     "react-dev-utils": "^4.0.0",
     "react-dom": "^15.5.4",
