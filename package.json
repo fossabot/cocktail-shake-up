@@ -222,7 +222,7 @@
       "\\.css$": "identity-obj-proxy"
     },
     "notify": false,
-    "setupFiles": ["./config/setup.js"],
+    "setupFiles": ["./config/setup.js", "./config/mocks.js"],
     "testPathIgnorePatterns": ["webdriver/"]
   },
   "prettier": {
