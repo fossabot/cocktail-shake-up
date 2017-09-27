@@ -2,48 +2,48 @@
 
 exports[`Should render a Header 1`] = `
 "<header>
-<Link to=\\"/undefined\\" replace={false} />
-<p className=\\"path\\" />
-<Link to=\\"/undefined\\" replace={false} />
+  <Link to=\\"/undefined\\" replace={false} />
+  <p className=\\"path\\" />
+  <Link to=\\"/undefined\\" replace={false} />
 </header>"
 `;
 
 exports[`Should render a Header with a next Link 1`] = `
 "<header>
-<Link to=\\"/undefined\\" replace={false} />
-<p className=\\"path\\" />
-<Link to=\\"/next\\" replace={false}>
-next
-</Link>
+  <Link to=\\"/undefined\\" replace={false} />
+  <p className=\\"path\\" />
+  <Link to=\\"/next\\" replace={false}>
+    next
+  </Link>
 </header>"
 `;
 
 exports[`Should render a Header with a previous Link 1`] = `
 "<header>
-<Link to=\\"/previous\\" replace={false}>
-previous
-</Link>
-<p className=\\"path\\" />
-<Link to=\\"/undefined\\" replace={false} />
+  <Link to=\\"/previous\\" replace={false}>
+    previous
+  </Link>
+  <p className=\\"path\\" />
+  <Link to=\\"/undefined\\" replace={false} />
 </header>"
 `;
 
 exports[`Should render a Header with next text 1`] = `
 "<header>
-<Link to=\\"/undefined\\" replace={false} />
-<p className=\\"path\\" />
-<Link to=\\"/undefined\\" replace={false}>
-next
-</Link>
+  <Link to=\\"/undefined\\" replace={false} />
+  <p className=\\"path\\" />
+  <Link to=\\"/undefined\\" replace={false}>
+    next
+  </Link>
 </header>"
 `;
 
 exports[`Should render a Header with previous text 1`] = `
 "<header>
-<Link to=\\"/undefined\\" replace={false}>
-previous
-</Link>
-<p className=\\"path\\" />
-<Link to=\\"/undefined\\" replace={false} />
+  <Link to=\\"/undefined\\" replace={false}>
+    previous
+  </Link>
+  <p className=\\"path\\" />
+  <Link to=\\"/undefined\\" replace={false} />
 </header>"
 `;

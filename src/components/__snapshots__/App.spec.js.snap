@@ -2,11 +2,11 @@
 
 exports[`should render an App 1`] = `
 "<BrowserRouter>
-<div>
-<Switch>
-<Route path=\\"/goodbye\\" render={[Function]} />
-<Route path=\\"/\\" render={[Function]} />
-</Switch>
-</div>
+  <div>
+    <Switch>
+      <Route path=\\"/goodbye\\" render={[Function]} />
+      <Route path=\\"/\\" render={[Function]} />
+    </Switch>
+  </div>
 </BrowserRouter>"
 `;
