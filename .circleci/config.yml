@@ -20,6 +20,8 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
@@ -45,6 +47,8 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
