@@ -8,7 +8,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
-      - run"
+      - run:
           name: Yarn Install
           command: yarn
       - save_cache:
