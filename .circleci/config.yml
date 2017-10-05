@@ -5,8 +5,6 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Yarn Install
           command: yarn
@@ -20,11 +18,9 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Snyk Authorisation
-          command: yarn snyk auth $SNYK_TOKEN
+          command: ./node_modules/.bin/snyk auth $SNYK_TOKEN
       - run:
           name: Greenkeeper Lockfile Update
           command: greenkeeper-lockfile-update
@@ -51,7 +47,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Snyk Authorisation
-          command: yarn snyk auth $SNYK_TOKEN
+          command: ./node_modules/.bin/snyk auth $SNYK_TOKEN
       - run:
           name: Yarn Build
           command: yarn build
@@ -60,7 +56,7 @@ jobs:
           command: yarn deploy
       - run:
           name: Snyk Monitor
-          command: snyk monitor
+          command: ./node_modules/.bin/snyk monitor
       - store_artifacts:
           path: build
           prefix: build
