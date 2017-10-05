@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.6.0
-
     steps:
       - checkout
       - restore_cache:
@@ -23,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: Snyk Authorisation
-          command: snyk auth $SNYK_TOKEN
+          command: yarn snyk auth $SNYK_TOKEN
       - run:
           name: Greenkeeper Lockfile Update
           command: greenkeeper-lockfile-update
@@ -48,7 +47,7 @@ jobs:
       - checkout
       - run:
           name: Snyk Authorisation
-          command: snyk auth $SNYK_TOKEN
+          command: yarn snyk auth $SNYK_TOKEN
       - run:
           name: Yarn Build
           command: yarn build
