@@ -1,7 +1,8 @@
 /* @flow */
+
+import Header from '../../app/components/Header';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from '../../src/components/Header';
 
 test('Should render a Header', () => {
   const tree = shallow(<Header />).debug();

@@ -8,9 +8,9 @@ module.exports = wallaby => {
       type: 'node',
     },
 
-    files: ['src/**/*.js', '!src/**/*.spec.js', 'src/**/*.css'],
+    files: ['app/**/*.js', '!app/**/*.spec.js', 'app/**/*.css'],
 
-    tests: ['src/**/*.spec.js'],
+    tests: ['app/**/*.spec.js'],
 
     testFramework: 'jest',
   };

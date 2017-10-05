@@ -1,0 +1,80 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.6.0
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run"
+          name: Yarn Install
+          command: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+          - ~/.cache/yarn
+
+  test:
+    docker:
+      - image: circleci/node:8.6.0
+    steps:
+      - checkout
+      - run:
+          name: Snyk Authorisation
+          command: snyk auth $SNYK_TOKEN
+      - run:
+          name: Greenkeeper Lockfile Update
+          command: greenkeeper-lockfile-update
+      - run:
+          name: Yarn start
+          command: yarn start
+          background: true
+      - run:
+          name: Jest Unit Tests
+          command: yarn test
+      - run:
+          name: Saucelabs System Tests
+          command: yarn sauce
+      - run:
+          command: Greenkeeper Lockfile Upload
+          command: greenkeeper-lockfile-upload
+
+  deploy:
+    docker:
+      - image: circleci/node:8.6.0
+      - checkout
+      - run:
+          name: Snyk Authorisation
+          command: snyk auth $SNYK_TOKEN
+      - run:
+          name: Yarn Build
+          command: yarn build
+      - run:
+          name: Yarn Deploy
+          command: yarn deploy
+      - run:
+          name: Snyk Monitor
+          command: snyk monitor
+      - store_artifacts:
+          path: build
+          prefix: build
+      - store_artifacts:
+          path: errorShots
+          prefix: errorShots
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

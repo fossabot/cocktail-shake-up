@@ -1,8 +1,8 @@
 /* @flow */
 
-import { HIDE, SHOW } from './actions';
+import { HIDE, SHOW } from '../actions/notifications';
 
-export function reducer(state: Object = {}, action: Object = {}) {
+export default function reducer(state: Object = {}, action: Object = {}) {
   switch (action.type) {
     case HIDE: {
       return {

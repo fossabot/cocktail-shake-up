@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   bail: true,
   devtool: 'hidden-source-map',
-  entry: './src/index',
+  entry: './app/index',
   module: {
     loaders: [
       {
@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'static/index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {

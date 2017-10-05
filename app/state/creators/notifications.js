@@ -1,6 +1,6 @@
 /* @flow */
 
-import { HIDE, SHOW } from './actions';
+import { HIDE, SHOW } from '../actions/notifications';
 
 export const hideNotification = (): ThunkAction => {
   return (dispatch: Dispatch, getState: GetState): void => {

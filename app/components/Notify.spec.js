@@ -1,6 +1,8 @@
+/* @flow */
+
+import Notify from '../../app/components/Notify';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Notify from '../../src/components/Notify';
 
 test('Should render a Notification', () => {
   const tree = shallow(<Notify />).debug();

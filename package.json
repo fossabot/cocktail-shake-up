@@ -2,8 +2,12 @@
   "name": "cocktail-shake-up",
   "version": "0.1.1",
   "private": true,
-  "browserslist": ["> 1%", "last 2 versions"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "devDependencies": {
+    "@percy-io/percy-storybook": "^1.2.3",
     "@storybook/addon-actions": "^3.2.11",
     "@storybook/addon-knobs": "^3.2.10",
     "@storybook/addon-links": "^3.2.10",
@@ -78,16 +82,18 @@
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "rollbar": "^2.2.9"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --colors --config config/webpack.config.prod.js",
-    "comb": "csscomb --config ./node_modules/csscomb/config/yandex.json 'src/**/*.css'",
-    "coverage": "flow-coverage-report -i 'src/**/*.js' -x 'src/**/*.stories.js'; jest --all --coverage",
+    "comb": "csscomb --config ./node_modules/csscomb/config/yandex.json 'app/**/*.css'",
+    "coverage": "flow-coverage-report -i 'app/**/*.js' -x 'app/**/*.stories.js'; jest --all --coverage",
     "deploy": "netlify --access-token $NETLIFY_SECRET deploy",
-    "lint": "yarn prettier; stylelint 'src/**/*.css' --fix; eslint './+(src|webdriver)/**/*.js' --fix; flow",
-    "prettier": "prettier './+(src|webdriver)/**/*.js' --write",
+    "lint": "yarn prettier; stylelint 'app/**/*.css' --fix; eslint './+(app|webdriver)/**/*.js' --fix; flow",
+    "prettier": "prettier './+(app|webdriver)/**/*.js' --write",
     "sauce": "wdio webdriver/wdio.sauce.js",
+    "snapshot": "build-storybook && percy-storybook",
     "start": " cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js",
     "storybook": "start-storybook -p 6006",
     "test": "snyk test; jest",
@@ -99,13 +105,19 @@
   "babel": {
     "env": {
       "development": {
-        "plugins": ["transform-react-jsx-source"]
+        "plugins": [
+          "transform-react-jsx-source"
+        ]
       },
       "production": {
-        "presets": ["minify"]
+        "presets": [
+          "minify"
+        ]
       },
       "test": {
-        "plugins": ["transform-es2015-modules-commonjs"]
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
       }
     },
     "presets": [
@@ -169,10 +181,22 @@
       "ecmaVersion": 2016,
       "sourceType": "module"
     },
-    "plugins": ["flowtype", "import", "jest", "jsx-a11y", "react"],
+    "plugins": [
+      "flowtype",
+      "import",
+      "jest",
+      "jsx-a11y",
+      "react"
+    ],
     "rules": {
-      "arrow-parens": ["error", "as-needed"],
-      "brace-style": ["error", "1tbs"],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "brace-style": [
+        "error",
+        "1tbs"
+      ],
       "camelcase": "error",
       "curly": "error",
       "default-case": "error",
@@ -184,10 +208,19 @@
       "no-param-reassign": "error",
       "no-useless-constructor": "error",
       "no-var": "error",
-      "object-curly-spacing": ["error", "always"],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
       "object-property-newline": "error",
-      "object-shorthand": ["error", "always"],
-      "one-var": ["error", "never"],
+      "object-shorthand": [
+        "error",
+        "always"
+      ],
+      "one-var": [
+        "error",
+        "never"
+      ],
       "prefer-const": "error",
       "prefer-rest-params": "error",
       "prefer-spread": "error",
@@ -203,7 +236,12 @@
       "sort-imports": [
         "warn",
         {
-          "memberSyntaxSortOrder": ["all", "multiple", "single", "none"]
+          "memberSyntaxSortOrder": [
+            "all",
+            "multiple",
+            "single",
+            "none"
+          ]
         }
       ],
       "yoda": [
@@ -216,14 +254,25 @@
     }
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.js", "!src/**/*.stories.js"],
-    "coverageReporters": ["json", "lcov", "text"],
+    "collectCoverageFrom": [
+      "app/**/*.js",
+      "!app/**/*.stories.js"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text"
+    ],
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"
     },
     "notify": false,
-    "setupFiles": ["./config/setup.js", "./config/mocks.js"],
-    "testPathIgnorePatterns": ["webdriver/"]
+    "setupFiles": [
+      "./config/setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "webdriver/"
+    ]
   },
   "prettier": {
     "bracket-spacing": true,
@@ -238,7 +287,9 @@
       "at-rule-empty-line-before": [
         "always",
         {
-          "except": ["first-nested"]
+          "except": [
+            "first-nested"
+          ]
         }
       ],
       "block-closing-brace-empty-line-before": "never",
@@ -250,7 +301,10 @@
       "custom-property-empty-line-before": [
         "always",
         {
-          "except": ["after-custom-property", "first-nested"]
+          "except": [
+            "after-custom-property",
+            "first-nested"
+          ]
         }
       ],
       "declaration-block-no-duplicate-properties": true,
@@ -272,7 +326,9 @@
       "rule-empty-line-before": [
         "always-multi-line",
         {
-          "except": ["first-nested"]
+          "except": [
+            "first-nested"
+          ]
         }
       ],
       "selector-max-empty-lines": 0,

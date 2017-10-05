@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval-source-map',
-  entry: './src/index',
+  entry: './app/index',
   devServer: {
     historyApiFallback: true,
     hot: true,
@@ -44,11 +44,12 @@ module.exports = {
   plugins: [
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'static/index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
+        ROLLBAR: JSON.stringify(process.env.ROLLBAR),
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
