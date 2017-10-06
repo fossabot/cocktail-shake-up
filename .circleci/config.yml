@@ -48,8 +48,11 @@ jobs:
           name: Jest Unit Tests
           command: yarn test
       - run:
-          name: Saucelabs System Tests
-          command: yarn sauce
+          name: Codecov Coverage Report
+          command: yarn coverage
+      - run:
+          name: Percy Snapshots
+          command: yarn snapshot
       - run:
           command: Greenkeeper Lockfile Upload
           command: yarn greenkeeper-lockfile-upload

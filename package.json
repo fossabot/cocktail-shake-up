@@ -84,7 +84,7 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --colors --config config/webpack.config.prod.js",
-    "coverage": "flow-coverage-report -i 'app/**/*.js' -x 'app/**/*.stories.js'; jest --all --coverage",
+    "coverage": "flow-coverage-report -i 'app/**/*.js' -x 'app/**/*.stories.js'; codecov",
     "deploy": "netlify --access-token $NETLIFY_SECRET deploy",
     "lint": "yarn prettier; stylelint 'app/**/*.css' --fix; eslint './+(app|webdriver)/**/*.js' --fix; flow",
     "prettier": "prettier './+(app|webdriver)/**/*.+(css|js)' --write",
@@ -92,7 +92,7 @@
     "snapshot": "build-storybook && percy-storybook",
     "start": " cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js",
     "storybook": "start-storybook -p 6006",
-    "test": "yarn snyk test; yarn snapshot; jest; codecov",
+    "test": "yarn snyk test; jest",
     "types": "flow-typed install",
     "webdriver": "wdio webdriver/wdio.conf.js",
     "postinstall": "snyk protect"
