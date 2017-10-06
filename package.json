@@ -2,10 +2,7 @@
   "name": "cocktail-shake-up",
   "version": "0.1.1",
   "private": true,
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
+  "browserslist": "> 1%, last 2 versions",
   "devDependencies": {
     "@percy-io/percy-storybook": "^1.2.3",
     "@storybook/addon-actions": "^3.2.11",
