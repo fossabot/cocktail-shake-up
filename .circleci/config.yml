@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/cocktail-shake-up
+
     docker:
       - image: circleci/node:8.6.0
     steps:
@@ -21,9 +23,7 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
-      - run:
-          name: Snyk Authorisation
-          command: ./node_modules/.bin/snyk auth $SNYK_TOKEN
+
       - run:
           name: Greenkeeper Lockfile Update
           command: greenkeeper-lockfile-update
