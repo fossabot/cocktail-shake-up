@@ -60,9 +60,15 @@ jobs:
           name: Snyk Monitor
           command: yarn snyk monitor
       - store_artifacts:
-          path: build
-          prefix: build
+          path: coverage
+          prefix: coverage
       - store_artifacts:
+          path: errorShots
+          prefix: errorShots
+      - store_test_results:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
           path: errorShots
           prefix: errorShots
 
