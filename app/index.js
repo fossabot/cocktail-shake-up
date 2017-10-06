@@ -6,7 +6,7 @@ import { default as App } from './components/App';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { reducer } from './state/reducers';
+import reducer from './state/reducers';
 import thunk from 'redux-thunk';
 
 new Rollbar({
@@ -25,17 +25,15 @@ new Rollbar({
   },
 });
 
-
 addEventListener('unhandledrejection', event => Rollbar.error(`Unhandled promise rejection ${event.reason}`));
 
 addEventListener('rejectionhandled', event => Rollbar.warning(`Handled promise rejection ${event.reason}`));
-
 
 const enhancer = do {
   if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(applyMiddleware(thunk));
   } else {
-    compose(applyMiddleware(thunk))
+    compose(applyMiddleware(thunk));
   }
 };
 
