@@ -54,6 +54,9 @@ jobs:
           name: Percy Snapshots
           command: yarn snapshot
       - run:
+          name: Saucelabs System Tests
+          command: yarn sauce
+      - run:
           command: Greenkeeper Lockfile Upload
           command: yarn greenkeeper-lockfile-upload
 
