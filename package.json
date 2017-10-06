@@ -93,7 +93,7 @@
     "snapshot": "build-storybook && percy-storybook",
     "start": " cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js",
     "storybook": "start-storybook -p 6006",
-    "test": "snyk test; jest",
+    "test": "snyk test; jest; codecov",
     "types": "flow-typed install",
     "webdriver": "wdio webdriver/wdio.conf.js",
     "prepackage": "yarn build",
@@ -251,6 +251,7 @@
     }
   },
   "jest": {
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "app/**/*.js",
       "!app/**/*.stories.js"
