@@ -35,9 +35,6 @@ jobs:
       - attach_workspace:
           at: ~/cocktail-shake-up
       - run:
-          name: Copy node modules from persistent workspace
-          command: cp ./workspace/node_modules .
-      - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
       - run:
@@ -64,9 +61,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/cocktail-shake-up
-      - run:
-          name: Copy node modules from persistent workspace
-          command: cp ./workspace/node_modules .
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
