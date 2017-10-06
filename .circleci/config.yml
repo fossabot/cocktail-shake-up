@@ -39,7 +39,7 @@ jobs:
           command: yarn snyk auth $SNYK_TOKEN
       - run:
           name: Greenkeeper Lockfile Update
-          command: greenkeeper-lockfile-update
+          command: yarn greenkeeper-lockfile-update
       - run:
           name: Yarn start
           command: yarn start
@@ -52,7 +52,7 @@ jobs:
           command: yarn sauce
       - run:
           command: Greenkeeper Lockfile Upload
-          command: greenkeeper-lockfile-upload
+          command: yarn greenkeeper-lockfile-upload
 
   deploy:
     <<: *defaults
