@@ -25,9 +25,9 @@
     "babel-preset-minify": "^0.2.0",
     "babel-preset-react": "^6.24.1",
     "case-sensitive-paths-webpack-plugin": "^2.0.0",
+    "codecov": "^2.3.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.0",
-    "csscomb": "^4.2.0",
     "empty": "^0.10.1",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
@@ -84,11 +84,10 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --colors --config config/webpack.config.prod.js",
-    "comb": "csscomb --config ./node_modules/csscomb/config/yandex.json 'app/**/*.css'",
     "coverage": "flow-coverage-report -i 'app/**/*.js' -x 'app/**/*.stories.js'; jest --all --coverage",
     "deploy": "netlify --access-token $NETLIFY_SECRET deploy",
     "lint": "yarn prettier; stylelint 'app/**/*.css' --fix; eslint './+(app|webdriver)/**/*.js' --fix; flow",
-    "prettier": "prettier './+(app|webdriver)/**/*.js' --write",
+    "prettier": "prettier './+(app|webdriver)/**/*.+(css|js)' --write",
     "sauce": "wdio webdriver/wdio.sauce.js",
     "snapshot": "build-storybook && percy-storybook",
     "start": " cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js",
@@ -96,7 +95,6 @@
     "test": "snyk test; jest; codecov",
     "types": "flow-typed install",
     "webdriver": "wdio webdriver/wdio.conf.js",
-    "prepackage": "yarn build",
     "postinstall": "snyk protect"
   },
   "babel": {
