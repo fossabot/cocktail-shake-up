@@ -1,10 +1,13 @@
+defaults: &defaults
+  working_directory: ~/cocktail-shake-up
+  docker:
+      - image: circleci/node:8.6.0
+
 version: 2
 jobs:
   build:
-    working_directory: ~/cocktail-shake-up
+    <<: *defaults
 
-    docker:
-      - image: circleci/node:8.6.0
     steps:
       - checkout
       - restore_cache:
@@ -20,19 +23,17 @@ jobs:
           name: Create persistent workspace
           command: mkdir -p workspace
       - persist_to_workspace:
-          root: workspace
+          root: ~/cocktail-shake-up
           paths:
             - node_modules
 
   test:
-    working_directory: ~/cocktail-shake-up
+    <<: *defaults
 
-    docker:
-      - image: circleci/node:8.6.0
     steps:
       - checkout
       - attach_workspace:
-          at: workspace
+          at: ~/cocktail-shake-up
       - run:
           name: Copy node modules from persistent workspace
           command: cp ./workspace/node_modules .
@@ -57,14 +58,12 @@ jobs:
           command: greenkeeper-lockfile-upload
 
   deploy:
-    working_directory: ~/cocktail-shake-up
+    <<: *defaults
 
-    docker:
-      - image: circleci/node:8.6.0
     steps:
       - checkout
       - attach_workspace:
-          at: workspace
+          at: ~/cocktail-shake-up
       - run:
           name: Copy node modules from persistent workspace
           command: cp ./workspace/node_modules .
