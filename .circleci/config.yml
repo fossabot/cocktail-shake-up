@@ -26,7 +26,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: workspace
+          at: node_modules
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
