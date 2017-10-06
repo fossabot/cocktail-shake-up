@@ -18,6 +18,8 @@ jobs:
             - ~/.cache/yarn
 
   test:
+    docker:
+      - image: circleci/node:8.6.0
     steps:
       - checkout
       - run:
@@ -41,6 +43,8 @@ jobs:
           command: greenkeeper-lockfile-upload
 
   deploy:
+    docker:
+      - image: circleci/node:8.6.0
     steps:
       - checkout
       - run:
