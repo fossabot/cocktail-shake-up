@@ -17,7 +17,6 @@ jobs:
           paths:
           - ~/.cache/yarn
       - persist_to_workspace:
-          root: workspace
           paths:
             - node_modules
 
@@ -27,7 +26,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/workspace
+          at: workspace
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
