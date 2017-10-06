@@ -19,6 +19,7 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
+            - node_modules
       - run:
           name: Create persistent workspace
           command: mkdir -p workspace
