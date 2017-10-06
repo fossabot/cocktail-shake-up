@@ -20,8 +20,8 @@ const config = {
   MAC: {
     PLATFORM: 'OS X',
     NAME: 'macOS',
-    LATEST: '10.12',
-    PREVIOUS: '10.11',
+    LATEST: '10.13',
+    PREVIOUS: '10.12',
   },
 };
 
