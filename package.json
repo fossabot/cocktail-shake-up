@@ -92,7 +92,7 @@
     "snapshot": "build-storybook && percy-storybook",
     "start": " cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js",
     "storybook": "start-storybook -p 6006",
-    "test": "snyk test; jest; codecov",
+    "test": "yarn snyk test; yarn snapshot; jest; codecov",
     "types": "flow-typed install",
     "webdriver": "wdio webdriver/wdio.conf.js",
     "postinstall": "snyk protect"

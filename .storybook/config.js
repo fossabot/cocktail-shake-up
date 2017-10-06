@@ -4,7 +4,6 @@ import createPercyAddon from '@percy-io/percy-storybook';
 const { percyAddon, serializeStories } = createPercyAddon();
 
 setAddon(percyAddon);
-serializeStories(getStorybook);
 
 const req = require.context('../app/components', true, /\.stories\.js$/);
 
@@ -13,3 +12,4 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+serializeStories(getStorybook);
