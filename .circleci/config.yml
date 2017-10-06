@@ -16,7 +16,7 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
-      - run: mkdir -p workspace
+      - run: mkdir -p /tmp/workspace
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
