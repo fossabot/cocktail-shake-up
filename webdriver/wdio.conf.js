@@ -5,7 +5,7 @@ exports.config = {
   capabilities: [
     {
       browserName: 'safari',
-    }
+    },
   ],
 
   sync: true,

@@ -5,15 +5,15 @@ header {
 }
 
 header * {
+  line-height: 3rem;
+
+  flex: 1;
+
   margin: 0;
 
   text-align: center;
 
   color: white;
-
-  line-height: 3rem;
-
-  flex: 1;
 }
 
 header *:first-child {
@@ -31,9 +31,9 @@ header *:last-child {
 }
 
 header .path {
+  font-weight: 600;
+
   text-transform: capitalize;
 
   color: darkred;
-
-  font-weight: 600;
 }
