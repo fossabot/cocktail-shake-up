@@ -16,6 +16,9 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache/yarn
+      - run:
+          name: Create persistent workspace
+          command: mkdir -p workspace
       - persist_to_workspace:
           root: workspace
           paths:
@@ -30,7 +33,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: workspace
-      - run: cp ./workspace/node_modules .
+      - run:
+          name: Copy node modules from persistent workspace
+          command: cp ./workspace/node_modules .
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
@@ -52,10 +57,17 @@ jobs:
           command: greenkeeper-lockfile-upload
 
   deploy:
+    working_directory: ~/cocktail-shake-up
+
     docker:
       - image: circleci/node:8.6.0
     steps:
       - checkout
+      - attach_workspace:
+          at: workspace
+      - run:
+          name: Copy node modules from persistent workspace
+          command: cp ./workspace/node_modules .
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
