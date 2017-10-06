@@ -5,13 +5,16 @@ jobs:
       - image: circleci/node:8.6.0
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
           name: Yarn Install
           command: yarn
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
           - ~/.cache/yarn
+          - node_modules
 
   test:
     docker:
