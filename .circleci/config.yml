@@ -16,15 +16,18 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
           - ~/.cache/yarn
-          - node_modules
+      - persist_to_workspace:
+          root: workspace
+          paths:
+            - node_modules
 
   test:
     docker:
       - image: circleci/node:8.6.0
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
+      - attach_workspace:
+          at: /tmp/workspace
       - run:
           name: Snyk Authorisation
           command: yarn snyk auth $SNYK_TOKEN
