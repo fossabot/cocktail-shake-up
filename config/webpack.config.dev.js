@@ -8,7 +8,6 @@ module.exports = {
   entry: './app/index',
   devServer: {
     historyApiFallback: true,
-    hot: true,
     host: '0.0.0.0',
     overlay: {
       warnings: true,
