@@ -35,10 +35,12 @@ exports.config = {
 
   capabilities: [
     {
-      browserName: 'Safari',
-      deviceName: 'iPhone Simulator',
+      appiumVersion: '1.7.1',
+      deviceName: 'iPhone X Simulator',
+      deviceOrientation: 'portrait',
+      platformVersion: '11.0',
       platformName: 'iOS',
-      platformVersion: '11',
+      browserName: 'Safari',
     },
     {
       browserName: config.EDGE,
