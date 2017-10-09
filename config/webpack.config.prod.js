@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -36,6 +37,12 @@ module.exports = {
     path: path.join(__dirname, '..', 'dist'),
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        context: 'static',
+        from: '*.+(json|yml)',
+      },
+    ]),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: 'static/index.html',

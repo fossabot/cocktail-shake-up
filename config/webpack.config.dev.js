@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -42,6 +43,12 @@ module.exports = {
     pathinfo: true,
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        context: 'static',
+        from: '*.+(json|yml)',
+      },
+    ]),
     new DashboardPlugin(),
     new HtmlWebpackPlugin({
       template: 'static/index.html',
