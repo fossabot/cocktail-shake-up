@@ -34,10 +34,11 @@ exports.config = {
   updateJob: false,
 
   capabilities: [
-    {
+    {     
       browserName: 'Safari',
       deviceName: 'iPhone Simulator',
       platformName: 'iOS',
+      platformVersion: "10"
     },
     {
       browserName: config.EDGE,
