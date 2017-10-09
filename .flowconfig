@@ -1,7 +1,7 @@
 [ignore]
 .*/\.storybook/.*
 .*/config/.*
-.*/dist/.*
+.*/build/.*
 .*/node_modules/.*
 .*/wallaby\.js
 

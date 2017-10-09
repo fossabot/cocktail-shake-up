@@ -34,7 +34,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[chunkhash].js',
-    path: path.join(__dirname, '..', 'dist'),
+    path: path.join(__dirname, '..', 'build'),
   },
   plugins: [
     new CopyWebpackPlugin([
