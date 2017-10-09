@@ -35,6 +35,11 @@ exports.config = {
 
   capabilities: [
     {
+      browserName: 'Safari',
+      deviceName: 'iPhone Simulator',
+      platformName: 'iOS',
+    },
+    {
       browserName: config.EDGE,
       build: config.BUILD,
       name: `${config.WIN.NAME} ${config.WIN.LATEST}`,
